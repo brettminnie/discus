@@ -17,7 +17,7 @@ class ComponentFactory {
         $dirHwnd = opendir($path);
 
         while(false != ($file = readdir($dirHwnd))) {
-            if(strstr($file, '.php') && $file != 'AComponent.php') {
+            if(strstr($file, '.php') && $file != 'AComponent.php' && $file != 'ComponentException.php') {
                 self::$_objectArray[] = substr($file, 0, strlen($file)-4);
             }
         }
@@ -40,3 +40,4 @@ class ComponentFactory {
         }
     }
 }
+

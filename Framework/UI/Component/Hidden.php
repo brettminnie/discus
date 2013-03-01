@@ -1,11 +1,13 @@
 <?php
     namespace BDB\Framework\UI\Component;
+
     /**
      *
      * @author Brett Minnie
      *
      */
-    class Password extends AComponent {
+    class Hidden extends AComponent {
+
         /**
          * @param string $name
          * @param string $id
@@ -24,12 +26,12 @@
         public function Render() {
             echo "
             <input
-                type='password'
-                autocomplete='off'
+                type='hidden'
                 name='{$this->GetName()}'
                 id='{$this->GetID()}'
                 class='{$this->GetClass()}'
                 data-uuid='{$this->GetInternalID()}'
+                value='{$this->GetValue()}'
                 {$this->IsEnabled()} {$this->IsReadOnly()} {$this->IsVisible()} {$this->getJQueryAttributes()}
             />" . PHP_EOL ;
         }

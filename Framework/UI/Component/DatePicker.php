@@ -1,11 +1,13 @@
 <?php
     namespace BDB\Framework\UI\Component;
+
     /**
      *
      * @author Brett Minnie
      *
      */
-    class Password extends AComponent {
+    class DatePicker extends Input {
+
         /**
          * @param string $name
          * @param string $id
@@ -15,6 +17,7 @@
          */
         public function __construct($name, $id, $value, $visible = TRUE, $enabled = TRUE) {
             parent::__construct($name, $id, $value, $visible, $enabled);
+            $this->ToggleReadOnly();
         }
 
         /**
@@ -22,15 +25,6 @@
          * @see BDB\Framework\UI\Component.AComponent::Render()
          */
         public function Render() {
-            echo "
-            <input
-                type='password'
-                autocomplete='off'
-                name='{$this->GetName()}'
-                id='{$this->GetID()}'
-                class='{$this->GetClass()}'
-                data-uuid='{$this->GetInternalID()}'
-                {$this->IsEnabled()} {$this->IsReadOnly()} {$this->IsVisible()} {$this->getJQueryAttributes()}
-            />" . PHP_EOL ;
+            parent::Render();
         }
     }
