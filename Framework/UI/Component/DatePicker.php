@@ -6,7 +6,7 @@
      * @author Brett Minnie
      *
      */
-    class DatePicker extends Input {
+    class DatePicker extends Input implements DHTMLInterface{
 
         /**
          * @param string $name
@@ -26,5 +26,13 @@
          */
         public function Render() {
             parent::Render();
+        }
+        
+        /**
+         * 
+         */
+        public function GenerateScripts()
+        {
+        	
         }
     }

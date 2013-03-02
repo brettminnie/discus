@@ -41,7 +41,7 @@
                 class='{$this->GetClass()}'
                 data-uuid='{$this->GetInternalID()}'
                 value='{$this->GetValue()}'
-                {$this->IsEnabled()} {$this->IsReadOnly()} {$this->IsVisible()} {$this->IsChecked())} {$this->getJQueryAttributes()}
+                {$this->IsEnabled()} {$this->IsReadOnly()} {$this->IsVisible()} {$this->IsChecked()} {$this->getJQueryAttributes()}
             />" . PHP_EOL ;
         }
     }

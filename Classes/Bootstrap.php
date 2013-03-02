@@ -14,7 +14,7 @@ class Bootstrap {
         try {
             self::$_dbInstance = new \PDO('mysql:host=localhost;dbname=discus', 'root', 'r4gn4rok');
         }
-        catch(Exception $e) {
+        catch(\Exception $e) {
             echo $e->getMessage();
         }
         self::$_path = realpath(dirname(__FILE__).'/..') . '/';

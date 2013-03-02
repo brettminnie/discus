@@ -11,4 +11,4 @@
 
     !defined('AUTO_PREPEND_INCLUDED')|| define('AUTO_PREPEND_INCLUDED', TRUE);
 
-
+    !defined('SCRIPT_PATH') || define('SCRIPT_PATH','libraries');

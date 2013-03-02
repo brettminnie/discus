@@ -3,8 +3,9 @@
 namespace BDB\Framework\UI\Component;
 
 use BDB\Framework\Utils\UUID;
+use BDB\Framework\UI\Writable;
 
-abstract class AComponent {
+abstract class AComponent implements Writable{
     /**
      * @var Array
      * Array containing the base attributes
