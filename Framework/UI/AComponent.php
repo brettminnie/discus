@@ -1,9 +1,10 @@
 <?php
 
-namespace BDB\Framework\UI\Component;
+namespace BDB\Framework\UI;
 
 use BDB\Framework\Utils\UUID;
 use BDB\Framework\UI\Writable;
+use BDB\Framework\UI\Component\ComponentException;
 
 abstract class AComponent implements Writable{
     /**

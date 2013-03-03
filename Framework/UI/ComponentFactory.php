@@ -2,6 +2,7 @@
 
 namespace BDB\Framework\UI;
 
+
 class ComponentFactory {
 
     const COMP_PATH = 'Framework/UI/Component';

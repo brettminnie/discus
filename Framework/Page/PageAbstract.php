@@ -17,6 +17,8 @@
     	protected $_contentType = 'text/html';
     	protected $_contentEncoding = 'UTF-8';
     	protected $_components = array();
+    	
+    	protected $__hasRendered = FALSE;
     	/**
     	 * @param string $pageTitle
     	 */

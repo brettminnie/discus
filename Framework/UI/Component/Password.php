@@ -1,5 +1,7 @@
 <?php
     namespace BDB\Framework\UI\Component;
+    
+    use BDB\Framework\UI\AComponent;
     /**
      *
      * @author Brett Minnie

@@ -3,5 +3,6 @@
 
     interface DHTMLInterface {
 	    public function GenerateScripts();
+	    public function SetScripts($scripts);
     }
 

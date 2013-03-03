@@ -19,6 +19,7 @@ class HttpPage extends PageAbstract {
 		$this->AddScript('http://code.jquery.com/jquery-1.9.1.min.js');
 		$this->AddScript('http://code.jquery.com/ui/1.10.1/jquery-ui.min.js');
 		$this->AddStyleSheet('http://code.jquery.com/ui/1.10.1/themes/base/minified/jquery-ui.min.css');
+		$this->AddStyleSheet('CSS/core.css');
 	}
 	
 	/**
@@ -42,6 +43,7 @@ class HttpPage extends PageAbstract {
 	public function Render() {
 		$this->RenderHead();
 		$this->RenderContent();
+		$this->_hasRendered = TRUE;
 	}
 	
 	/**
