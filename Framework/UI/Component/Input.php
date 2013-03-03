@@ -16,10 +16,16 @@
          * @param bool $visible
          * @param bool $enabled
          */
+    	protected $_type = 'text';
+    	
+    	
         public function __construct($name, $id, $value, $visible = TRUE, $enabled = TRUE) {
             parent::__construct($name, $id, $value, $visible, $enabled);
         }
 
+        public function SetType($type) {
+        	$this->_type = $type;
+        }
         /**
          * (non-PHPdoc)
          * @see BDB\Framework\UI\Component.AComponent::Render()
@@ -27,7 +33,7 @@
         public function Render() {
             echo "
             <input
-                type='text'
+                type='{$this->_type}'
                 name='{$this->GetName()}'
                 id='{$this->GetID()}'
                 class='{$this->GetClass()}'

@@ -7,6 +7,8 @@
     $page->AddComponent(BDB\Framework\UI\ComponentFactory::Create('Password', 'test', 'test', 'Hello there'));
     $page->AddComponent(BDB\Framework\UI\ComponentFactory::Create('Hidden', 'test', 'test', 'Hello there'));
     $page->AddComponent(BDB\Framework\UI\ComponentFactory::Create('DatePicker', 'dt_test', 'dt_test', date('d/m/Y')));
+    $page->AddComponent(BDB\Framework\UI\ComponentFactory::Create('Submit', 'Click', 'Click', 'Moo'));
+    $page->AddComponent(BDB\Framework\UI\ComponentFactory::Create('Reset', 'Click', 'Click', 'Boink'));
     
     $objSelect = new BDB\Framework\UI\Component\Select('Boo', 'Boo', null);
     $objSelect->AddItem('1', 'Test');
