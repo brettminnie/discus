@@ -33,6 +33,12 @@
     	 * The contents of the container
     	 */
     	protected $_contents;
+
+    	/**
+    	 * 
+    	 * @var unknown_type
+    	 */
+    	protected $_components;
     	
     	/**
     	 * @var Array
@@ -196,6 +202,10 @@
         
     	public function AddContents($contents) {
     		$this->_contents = $contents;
+    	}
+    	
+    	public function AddComponent($component) {
+    		$this->_components[] = $component;
     	}
     	
     	abstract public function Render();

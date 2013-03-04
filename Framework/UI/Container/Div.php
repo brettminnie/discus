@@ -8,13 +8,18 @@ use BDB\Framework\UI\AContainer;
 class Div extends AContainer {
 	
 	public function Render() {
-		echo '<div>';
-		if($this->_contents instanceof Writable) {
-			$this->_contents->Render();
+		echo "<div name='{$this->GetName()}' id='{$this->GetID()}' class='{$this->GetClass()}' data-uuid='{$this->GetInternalID()}' >";
+		
+		foreach($this->_components as $item) {
+    		if($item instanceof Writable) {
+    			$item->Render();
+    		}
+            else {
+            	echo $item;
+            }
 		}
-        else {
-        	echo $this->_contents;
-        }		
+
+		echo $this->_contents;
 		echo '</div>';
 	}
 }
