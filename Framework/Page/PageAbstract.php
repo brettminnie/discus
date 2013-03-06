@@ -8,17 +8,41 @@
 
     abstract class PageAbstract {
     	
+    	/**
+    	 * @var array containing all the javascript includes for the page
+    	 */
     	protected $_headScript = array();
+    	
+    	/**
+    	 * @var array containing any meta tags in the page
+    	 */
     	protected $_headMeta = array();
+    	
+    	/**
+    	 * @var array containing all the css includes for the page
+    	 */
     	protected $_headCSS = array();
     	
-	
+        /**
+         * @var string for the <title> tag
+         */	
     	protected $_pageTitle;
+    	
+    	/**
+    	 * @var string containing the content type to set in the meta headers
+    	 */
     	protected $_contentType = 'text/html';
+    	
+    	/**
+    	 * @var string containing the content type of the page
+    	 */
     	protected $_contentEncoding = 'UTF-8';
+    	
+    	/**
+    	 * @var an array of BDB\Framework\UI\Writable components 
+    	 */
     	protected $_components = array();
     	
-    	protected $__hasRendered = FALSE;
     	/**
     	 * @param string $pageTitle
     	 */
@@ -58,10 +82,19 @@
     		$this->_headMeta[$name] = $content;
     	}
     	
+    	/**
+    	 * Method to add a single stylesheet the document
+    	 * @param string $cssName
+    	 */
     	public function AddStyleSheet($cssName) {
     		$this->_headCSS[] = $cssName;
     	}
     	
+    	/**
+    	 * Method to add multiple stylesheets to the document
+    	 * @param array $cssNames
+    	 * @throws PageException
+    	 */
     	public function AddStyleSheets(array $cssNames) {
     		if (!is_array($cssNames)) {
     			throw new PageException('Expected Array got something else');
@@ -72,14 +105,44 @@
     		}
     	}
     	
-    	public function AddComponent($component) {
+    	/**
+    	 * Method to add a BDB\Framework\UI\Writable component to the document body
+    	 * @param BDB\Framework\UI\Writable $component
+    	 */
+    	public function AddComponent(Writable $component) {
     		$this->_components[] = $component;
     	}
+
+    	/**
+    	 * Method to add multiple components to the document body
+    	 * @param array $components
+    	 * @throws PageException
+    	 */
+    	public function AddComponents(array $components) {
+    		if(!is_array($components)) {
+    			throw new PageException('Expected an array of components');
+    		}
+    		
+    		foreach($components as $item) {
+    			if($item instanceof Writable) {
+    			    $this->AddComponent($item);
+    			}
+    		}
+    	}
     	
+    	/**
+    	 * Abstract method to render the <head> content
+    	 */
     	abstract protected function RenderHead();
     	
+    	/**
+    	 * Abstract method to render the <body> content
+    	 */
     	abstract protected function RenderContent();
     	
+    	/**
+    	 * Method to render all the internal components
+    	 */
     	protected function RenderComponents() {
     	    foreach($this->_components as $compontent) {
     	    	if($compontent instanceof Writable) {
@@ -94,5 +157,12 @@
     	
     	abstract protected function RenderCSS();
     	
+    	protected function GetMethod() {
+    		return $_SERVER[REQUEST_METHOD];
+    	}
+    	
+    	protected function IsAjax() {
+    		return ((!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest'));
+    	}
     }
 

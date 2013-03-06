@@ -64,7 +64,7 @@
     	 * @see \BDB\Framework\UI\Component\AComponent::Render()
     	 */
     	public function Render() {
-    		echo "<select  name='{$this->GetName()}' id='{$this->GetID()}' class='{$this->GetClass()}' data-uuid='{$this->GetInternalID()}' {$this->IsEnabled()} {$this->IsReadOnly()} {$this->IsVisible()} {$this->getJQueryAttributes()}>" . PHP_EOL ;
+    		echo "<select  name='{$this->GetName()}' id='{$this->GetID()}' class='{$this->GetClass()}' data-uuid='{$this->GetInternalID()}' {$this->IsEnabled()} {$this->IsReadOnly()} {$this->IsVisible()} {$this->GetJQueryAttributes()}>" . PHP_EOL ;
     		if($this->_includeNone) {
     			echo "<option value=''>{$this->_noneText}</option>";
     		}

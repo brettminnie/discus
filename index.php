@@ -24,7 +24,11 @@
     $cell = BDB\Framework\UI\ContainerFactory::Create('TD', 'moo','bah');
     $cell->AddContents('Test');
     $row->AddComponent($cell);
+    $cell = BDB\Framework\UI\ContainerFactory::Create('TD', 'moo','bah');
+    $cell->AddContents('Test');
     $row->AddComponent($cell);
+    $cell = BDB\Framework\UI\ContainerFactory::Create('TD', 'moo','bah');
+    $cell->AddContents('Test');
     $row->AddComponent($cell);
     $table->AddComponent($row);
     $div->AddComponent($objSelect);

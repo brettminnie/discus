@@ -5,6 +5,7 @@
    use BDB\Framework\Utils\UUID;
    use BDB\Framework\UI\Writable;
    use BDB\Framework\UI\Container\ContainerException;
+   use BDB\Framework\UI\AComponent;
 
    abstract class AContainer implements Writable{
         
@@ -53,9 +54,11 @@
     	 * @var bool visible is the component to be displayed
     	 */
     	public function __construct($name, $id, $visible = TRUE) {
+    		
     		if (! $this instanceof AContainer) {
     			throw new ContainerException ( 'Must implement AContainer' );
     		}
+    		
     		$this->SetName($name);
     		$this->SetID($id);
     		$this->_attributeArray['visible'] = $visible;
@@ -142,7 +145,10 @@
     	 * @var string $value The value we are setting this to
     	 */
     	public function AddData($key, $value) {
-    		$this->_jquery_data [$key] = $value;
+    		if(!stristr($key,'data-')) {
+    			$key = 'data-' . $key;
+    		}
+    		$this->_jquery_data [strtolower($key)] = $value;
     	}
     	
     	/**
@@ -200,14 +206,42 @@
     		return $this->_attributeArray ['className'];
     	}
         
+    	/**
+    	 * Method to add raw html to the container
+    	 * @param string $contents
+    	 */
     	public function AddContents($contents) {
     		$this->_contents = $contents;
     	}
     	
-    	public function AddComponent($component) {
-    		$this->_components[] = $component;
+    	/**
+    	 * Method to add a component to the container
+    	 * @param Writable $component
+    	 */
+    	public function AddComponent(Writable $component) {
+    		$this->_components[$component->GetInternalID()] = $component;
     	}
     	
+    	/**
+    	 * Method to add multiple components to the container
+    	 * @param array $components
+    	 * @throws ContainerException
+    	 */
+    	public function AddComponents(array $components) {
+    		foreach($components as $item) {
+    			if($item instanceof Writable) {
+    				$this->AddComponent($item);
+    			}
+    			else {
+    	            throw new ContainerException('Cannot add a none component type to the container via ' . __METHOD__ );
+    			}
+    		}
+    	}
+    	
+    	/**
+    	 * (non-PHPdoc)
+    	 * @see \BDB\Framework\UI\Writable::Render()
+    	 */
     	abstract public function Render();
     	
     }

@@ -23,6 +23,24 @@ class AjaxPage extends PageAbstract {
 	protected function RenderHead() {
 		
 	}
+	/* (non-PHPdoc)
+	 * @see \BDB\Framework\Page\PageAbstract::RenderScripts()
+	 */protected function RenderScripts() {
+		// TODO Auto-generated method stub
+		}
+
+	/* (non-PHPdoc)
+	 * @see \BDB\Framework\Page\PageAbstract::RenderMeta()
+	 */protected function RenderMeta() {
+		// TODO Auto-generated method stub
+		}
+
+	/* (non-PHPdoc)
+	 * @see \BDB\Framework\Page\PageAbstract::RenderCSS()
+	 */protected function RenderCSS() {
+		// TODO Auto-generated method stub
+		}
+
 }
 
 ?>

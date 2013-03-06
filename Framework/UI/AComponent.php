@@ -231,7 +231,7 @@ abstract class AComponent implements Writable{
         return $this->value;
     }
 
-    public function getJQueryAttributes() {
+    public function GetJQueryAttributes() {
         $jquerydata = '';
         foreach($this->_jquery_data as $key=>$value) {
             $jquerydata.= "{$key}='{$value}' ";

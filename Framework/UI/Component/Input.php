@@ -39,7 +39,7 @@
                 class='{$this->GetClass()}'
                 data-uuid='{$this->GetInternalID()}'
                 value='{$this->GetValue()}'
-                {$this->IsEnabled()} {$this->IsReadOnly()} {$this->IsVisible()} {$this->getJQueryAttributes()}
+                {$this->IsEnabled()} {$this->IsReadOnly()} {$this->IsVisible()} {$this->GetJQueryAttributes()}
             />" . PHP_EOL ;
         }
     }
