@@ -40,7 +40,7 @@ class Fieldset extends AContainer {
 	public function Render() {
 		echo "<fieldset >" . PHP_EOL;
 		
-		if(!empty($this->GetLegend())) {
+		if($this->GetLegend() !== '') {
 			echo "<legend>" . $this->GetLegend() . "</legend>" . PHP_EOL;
 		}
 		

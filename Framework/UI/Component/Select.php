@@ -22,7 +22,8 @@
     	 */
     	function __construct($name, $id, $value, $visible = TRUE, $enabled = TRUE, $elements = array()) {
     		parent::__construct($name, $id, $value, $visible, $enabled);
-    		$this->_elements = $elements;	
+    		$this->_elements = $elements;
+
     	}
     	
     	/**
@@ -70,7 +71,7 @@
     		}
     		
     		foreach($this->_elements as $value=>$displayText) {
-    			$selected = ($this->GetValue() == $value)?"selected='selected'":'';
+    			$selected = (($this->GetValue() === $value)?"selected='selected'":'');
     			echo "<option value='{$value}' {$selected}>{$displayText}</option>";
     		}
     		echo "</select>";
