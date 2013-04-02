@@ -2,7 +2,6 @@
 
 namespace BDB\Framework\UI\Component;
 
-require_once ('Framework/UI/Component/AComponent.php');
 
 use BDB\Framework\UI\AComponent;
 

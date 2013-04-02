@@ -21,3 +21,5 @@
     $div->AddComponent($table);
     $page->AddComponent($div);
     $page->Render();
+    
+    $test = new Classes\DBOQuestion();
