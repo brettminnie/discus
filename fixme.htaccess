@@ -1,0 +1,7 @@
+php_value auto_prepend_file autoPrepend.php
+
+<IfModule mod_rewrite.c>
+    RewriteEngine on
+    RewriteCond $1 !^(favicon\.ico|favicon\.png|media|robots\.txt|crossdomain\.xml|css|js)
+    RewriteRule    (.*) index.php    [L]
+ </IfModule>
