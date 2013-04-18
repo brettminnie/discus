@@ -23,4 +23,6 @@
     $page->AddComponent($div);
     $page->Render();
     
+    var_dump(new Classes\DBOQuestion());
     $test = new Classes\DBOQuestion();
+    var_dump($test->GetBaseQuery());
