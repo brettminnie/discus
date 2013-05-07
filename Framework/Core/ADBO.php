@@ -152,7 +152,7 @@ abstract class ADBO implements Storable {
      * @see \BDB\Framework\Interfaces\Storable::GetBaseQuery()
      * @return string
      */
-    protected function GetBaseQuery() {
+    public function GetBaseQuery() {
         $strParams = "";
         foreach($this->_arFields as $Field) {
             $strParams.= "{$this->_aliasName}.{$Field}, ";
